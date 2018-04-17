@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+q, true);
 
         request.onload = function() {
-            if (request.status >= 200 & request.status < 400) {
+            if (request.status >= 200 && request.status < 400) {
                 data = JSON.parse(request.responseText).data.image_url;
                 document.getElementById("gif").innerHTML = 
                 '<center><img src="'+data+'" title="GIF"></center>';
