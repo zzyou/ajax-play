@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
             catch (e) {
                 try {
                     request = new ActiveXObject("Microsoft.XMLHTTP");
-                } catch (e) {
+                } 
+                catch (e) {
                     alert("Your browser broke!");
                     return false;
                 }
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let q = 'heart gifs';
 
-        request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+q, true);
+        request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + q, true);
 
         request.onload = function() {
             if (request.status >= 200 && request.status < 400) {
