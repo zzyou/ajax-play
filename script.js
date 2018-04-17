@@ -1,8 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("button").onclick = function() {
-        q = 'heart gifs';
+        let request;
+        try {
+            request = new XMLHttpRequest();
+        }
+        catch (e) {
+            try {
+                request = new ActiveXObject("Msxml2.XMLHTTP");
+            }
+            catch (e) {
+                try {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {
+                    alert("Your browser broke!");
+                    return false;
+                }
+            }
+        }
 
-        request = new XMLHttpRequest;
+        let q = 'heart gifs';
+
         request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+q, true);
 
         request.onload = function() {
